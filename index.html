@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soundpad</title>
+
+    <style>
+        html {
+
+            cursor:crosshair;
+        }
+
+        body {
+
+            background-color: rgb(165, 165, 216);
+            
+            cursor:crosshair;
+
+        }
+
+        .container {
+
+            width:100%;
+            height: 100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            margin-top: 30px;
+            cursor:crosshair;
+        }
+
+        .containerPlayer {
+
+            width:100%;
+            height: 100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            
+            margin-top: 50px;
+        }
+
+        .inner {
+            display: flex;
+        }
+
+        .pad {
+
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border-radius: 50%;
+            justify-items: center;
+            align-items: center;
+            display: grid;
+            margin: 10px;
+
+        }
+
+        .pad:hover {
+            background-color: antiquewhite;
+            transform: scale(1.04);
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="containerPlayer">
+    <audio class="player" controls>
+        <source src="C:/Users/grego/Desktop/pros/densityfm/music1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+    <div class="container">
+
+        <div class="inner">
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+            <div class="pad" id="pad1">
+                1
+            </div>
+        </div>
+
+
+    </div>
+
+
+<script>
+
+let specifics = document.querySelectorAll(".pad");
+let audios = ["C:/Users/grego/Desktop/pros/soundPad/white-noise-8117.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/woosh-building-109596.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/the-blade_1min-15sec-187350.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/ogi-feel-the-beat-jazz-expresso-191266.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/marionettes-124709.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/intense-horror-music-01-14890.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/exotic-intro-167256.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/cafe-ambience-9263.mp3",
+              "C:/Users/grego/Desktop/pros/soundPad/banging-on-locker-2-71776.mp3",
+            ];
+
+for(i = 0; i < specifics.length; i++){
+    let specific = specifics[i];
+
+    let audio = document.createElement("audio");
+    audio.src = audios[i];
+    document.body.appendChild(audio);
+
+    //specific.onclick = () => {
+      //  audio.play();
+  //  }
+
+    specific.onmouseover = () => {
+        audio.play();
+    }
+
+    specific.onmouseout = () => {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+}
+</script>
+
+</body>
+</html>
